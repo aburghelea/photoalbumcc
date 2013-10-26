@@ -442,146 +442,56 @@ The initial rope of the World Wide Web, request-response information sharing, is
 \end{itemize}
 Although the three ideas can be seen as independet ideeas, in production they are often used at the same time.
 
-
-\subsection{Subsection Heading Here}
-Subsection text here.
+The need of the users to interact with each other is easely obervable online, by the number of social networks like Facebook and Google+. Also, software vendors (especially Adobe, Microsoft and Google) have started campains to replace desktop application based on serial-number licenses with cloud application based on subscriptions. This approach has several benefits, but the most important one is the fact that a home user does not need a computer with a lot of processing power just to run an application, he just needs a browser and an internet connection. Taking the previous into account the previous statements, it can be seen that the browser is starting to become the most important software program from a computer. This fact has lead tot the development of operating systems based on browers (eg: Chrome OS).
 
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+\subsection{Motivation}
+This paper presents a cloud based photo management application. One of the most important application for a user is the photo management application. Although there are a lot of good desktop applications that fulfill this role there still is a need for back-up. Initially the users would copy the pictures on external hard drives and in the more recent years on social networks. 
 
+Although there currently exist applications for photo management that run in the cloud (eg: Picassa), there are none open-source applications that fulfill this role.
 
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation Results}
-%\label{fig_sim}
-%\end{figure}
+The cloud environment is the perfect place to store a photo management application because of the folowing:
+\begin{description}
+\item[Backup] - using cloud replication mechanism
+\item[Resizing] - distributed data crunching
+\item[Accesible] - 100\% online availability
+\end{description}
 
-% Note that IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
+\subsection{Objectives}
 
+The main objective of this application is to obtain a reliable photo album application running in the \textbf{Google App Engine}\cite{gae}.
 
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command, the
-% \label for the overall figure must come after \caption.
-% \hfil must be used as a separator to get equal spacing.
-% The subfigure.sty package works much the same way, except \subfigure is
-% used instead of \subfloat.
-%
-%\begin{figure*}[!t]
-%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
-%\label{fig_second_case}}}
-%\caption{Simulation results}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
+The application will be able to do the following:
 
+\begin{enumerate}
+  \item Display a homepage for logging in with the \textit{Google Accounts}
+  \item Display all the photos in a photo album.
+  \item Display a slideshow of the photos
+  \item Provide a way of uploading photos
+  \item Provide a way to comment on photos.
+  \item Provide a way to download the photos.
+\end{enumerate}
 
-% An example of a floating table. Note that, for IEEE style tables, the 
-% \caption command should come BEFORE the table. Table text will default to
-% \footnotesize as IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
+The application has to be reliable, scalable and secure.
 
-
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals/conferences use top floats
-% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
-% command of the stfloats package.
+To optain the following, the application will be implement using the \textit{GAE Software development kit} in corelation with the \textit{Google Web Services} (eg: \textit{Task Queue, Image Service})
 
 \section{Related Work}
-Similar work in the same area. Highlights: what are prons and cons of this work, how different is from your solution, how is your solution advancing the field!
+TODO
 
 \section{Architecture}
-Describe the basic idea of your approach. If necessary, this Section should be renamed to ``Proposed Algorithm'' or whatever does make sense for your project. This Section should also be followed immediately by the ``Implementation Details'' Section, where you describe in more details the solution.
+TODO
 
 \section{Experimental Results}
-Describe the methodology for the evaluation. Describe the scenario, settings, used in the evaluation, Present the result, highlighting the main finding (is it a good solution, a bad solution, why?).
+TODO
 
 \section{Conclusion}
-The conclusion goes here.
+TODO
 
 
-% conference papers do not normally have an appendix
-
-
-% use section* for acknowledgement
-%\section*{Acknowledgment}
-%The authors would like to thank...
-
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
+\bibitem{gae} 
+Google, \emph{Developer's Guide}. \hskip 1.1em \relax https://developers.google.com/appengine/docs/, 2013.
 \end{thebibliography}
 
 
