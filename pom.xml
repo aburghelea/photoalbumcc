@@ -27,6 +27,7 @@
         <persistence-api.version>1.0-rev-1</persistence-api.version>
         <maven-pmd-plugin.version>3.0.1</maven-pmd-plugin.version>
         <thymeleaf.version>2.0.19</thymeleaf.version>
+        <bootstrap.version>3.0.3</bootstrap.version>
     </properties>
 
     <dependencies>
@@ -149,6 +150,12 @@
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf-spring3</artifactId>
             <version>${thymeleaf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${bootstrap.version}</version>
         </dependency>
 
     </dependencies>
