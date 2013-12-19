@@ -1,4 +1,4 @@
-ccphotoalbum
+photoalbumcc
 ============
 
 Cloud Computing: Photo Album
