@@ -446,9 +446,9 @@ The need of the users to interact with each other is easely obervable online, by
 
 
 \subsection{Motivation}
-This paper presents a cloud based photo management application. One of the most important application for a user is the photo management application. Although there are a lot of good desktop applications that fulfill this role there still is a need for back-up. Initially the users would copy the pictures on external hard drives and in the more recent years on social networks. 
+This paper presents a cloud based photo management application. One of the most important application for a user is the photo management application. Although there are a lot of good desktop applications that fulfil this role there still is a need for back-up. Initially the users would copy the pictures on external hard drives and in the more recent years on social networks. 
 
-Although there currently exist applications for photo management that run in the cloud (eg: Picassa), there are none open-source applications that fulfill this role.
+Although there currently exist applications for photo management that run in the cloud (eg: Picassa), there are none open-source applications that fulfil this role.
 
 The cloud environment is the perfect place to store a photo management application because of the folowing:
 \begin{description}
@@ -466,7 +466,7 @@ The application will be able to do the following:
 \begin{enumerate}
   \item Display a homepage for logging in with the \textit{Google Accounts}
   \item Display all the photos in a photo album.
-  \item Display a slideshow of the photos
+  \item Display a sideshow of the photos
   \item Provide a way of uploading photos
   \item Provide a way to comment on photos.
   \item Provide a way to download the photos.
@@ -474,10 +474,31 @@ The application will be able to do the following:
 
 The application has to be reliable, scalable and secure.
 
-To optain the following, the application will be implement using the \textit{GAE Software development kit} in corelation with the \textit{Google Web Services} (eg: \textit{Task Queue, Image Service})
+To obtain the following, the application will be implement using the \textit{GAE Software development kit} in correlation with the \textit{Google Web Services} (eg: \textit{Task Queue, Image Service})
 
 \section{Related Work}
-TODO
+Currently there a lot of options for storing images in cloud environments. There are two main ways that can be used for image storing. One way would be a dedicate image storing service (eg: Flickr, Picassa etc) and the second one would be a classical cloud storage system (Google Cloud, Microsoft Skydrive). Another option to be taken into consideration would be the social networks (Facebook, Google Plus). 
+
+A comparison for seeing where these systems have failed can not be done, because of the nature service. The image storage part can't be really quantified, making it necessary to look at the building blocks and features that were used to develop these systems. Below is a summary of features for the most used image storage services \cite{isc}.
+
+\subsection{Flickr}
+Flickr offers both free and paid plans. Both planes have unlimited storage and support JPG, GIF and PNG images. The difference comes on file size limit (30MB free, 50MB pro), bandwith limits (300MB/month free, unlimited pro) and resolution (2MP free, Original pro). \cite{flickr} 
+
+\subsection{Photobucket}
+Photobucket has a similar policy as Flicker, only the limitations differ: file size limits (5MB / 20MB), bandwith limitations (10GB per month / unlimited). \cite{pb}
+
+\subsection{Snapfish}
+Snapfish is a free solution that would be perfect for most users because the only limitations that it has are the 5MB file size and a "Web-size" resolution. Although Snapfish is free it is required to buy one print per year to continue having access to the service. \cite{snap}
+
+\subsection{Shutterfly}
+An alternative to Snapfish is Shutterfly, because it provides the same services as Snapfish, the main difference being that it has only one limitation, the resolution (Web-size). \cite{shutter}
+
+\subsection{Picassa}
+The most used photo storage service is Picassa, having a free plan and a pro plan (2.49\$/month). The free plan ofers 1GB of storage while the pro plan varies from 25GB to 1TB. It supports images in JPEG, TIF,TIFF BMP, PNG PSD, PNG, TGA and some raw formats. The only drawback being the file size limit of 20MB. \cite{picassa}
+
+Seeing that all the services the above are commercial, none of them have publish research papers about the internals of the service, making it impossible to elaborate an academic point of view.
+
+One thing that is coherent across all the services is that the image is stored and processed in the background, the user regaining control of the interface as soon as the file reaches the server. Taking into account that the user regains control before the image has been persisted and manipulated, the result of the upload is not visible instantaneous, being necessary use a late notification system. Solutions for these are could be a long therm connection with the server that notifies the client side that the image can be displayed, or a comet system (reverse AJAX).
 
 \section{Architecture}
 TODO
@@ -492,6 +513,13 @@ TODO
 \begin{thebibliography}{1}
 \bibitem{gae} 
 Google, \emph{Developer's Guide}. \hskip 1.1em \relax https://developers.google.com/appengine/docs/, 2013.
+\bibitem{isc}
+Cnet, \emph{Comparing the best ways to store your photos online}. \hskip 1.1em \relax http://howto.cnet.com/8301-11310\_39-57462902-285/comparing-the-best-ways-to-store-your-photos-online/ , 2012.
+\bibitem{flickr} Flickr, \emph{FAQ}. \hskip 1.1em \relax http://www.flickr.com/help/faq/, 2013
+\bibitem{pb} Photobucket, \emph{Support}. \hskip 1.1em \relax http://support.photobucket.com/home, 2013
+\bibitem{snap} Snapfish, \emph{Support}. \hskip 1.1em \relax \newline http://support.snapfish.com/app/home/brand/3/brand\_host/www2.snapfish.com/, 2013.
+\bibitem{shutter} Shutterfly, \emph{Help}. \hskip 1.1em \relax http://shutterfly\-2.custhelp.com/app/path/landing
+\bibitem{picassa} Picassa, \emph {How To}. https://support.google.com/picasa/?hl=en, 2013
 \end{thebibliography}
 
 
