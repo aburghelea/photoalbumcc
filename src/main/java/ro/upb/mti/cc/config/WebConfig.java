@@ -1,5 +1,7 @@
 package ro.upb.mti.cc.config;
 
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -47,5 +49,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
         return resolver;
+    }
+
+    @Bean
+    public UserService userService() {
+        return UserServiceFactory.getUserService();
     }
 }
