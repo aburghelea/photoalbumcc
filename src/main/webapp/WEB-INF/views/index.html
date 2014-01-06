@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,9 +20,9 @@
     </div>
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li><a href="#">Upload</a></li>
-            <li><a href="#">Display</a></li>
-            <li><a href="#">Slideshow</a></li>
+            <li data-show="#upload"><a href="javascript:void(0)">Upload</a></li>
+            <li data-show="#display"><a href="javascript:void(0)">Display</a></li>
+            <li data-show="#slideshow"><a href="javascript:void(0)">Slideshow</a></li>
         </ul>
 
         <ul class="nav navbar-nav pull-right">
@@ -30,7 +30,7 @@
                 <a th:href="@{/login}">Please log in!</a>
             </li>
             <li th:unless="${user == null}">
-                <a th:href="@{/logout}"  th:text="'Log out, ' + ${user}"></a>
+                <a th:href="@{/logout}" th:text="'Log out, ' + ${user}"></a>
             </li>
         </ul>
 
@@ -39,16 +39,52 @@
 
 
 <div class="">
-    Page stub
-    <br/>=========<br/>
+    <div class="form-horizontal" role="form" data-type="hidable" id="upload" style="display: none">
+        <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="fileUploader" class="col-sm-2 control-label">Chose File</label>
 
+                <div class="col-sm-10">
+                    <input type="file" id="fileUploader" name="file" accept="image/*" style="display:none"/>
+                    <input id="photoCover" class="form-control col-sm-7" type="text" onclick="openUploader()" placeholder="Click to chose"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
-    <!--<div th:switch="${user}">-->
-    <!--<p th:case="null">User is an administrator</p>-->
+    <div data-type="hidable" id="display" style="display: none">
+        Display
+    </div>
 
-    <!--<p th:case="*">${user}</p>-->
-    <!--</div>-->
+    <div data-type="hidable" id="slideshow" style="display: none">
+        Show
+    </div>
 </div>
 
 </body>
+<script>
+    function openUploader() {
+        $('input[id=fileUploader]').click();
+    }
+    $(document).ready(function () {
+        $(".nav.navbar-nav > li ").on("click", function () {
+            var closable = $("div[data-type='hidable']:visible");
+            var show = $(this).attr("data-show");
+            $(show).slideDown("fast", function () {
+                $(closable).slideUp("fast");
+            });
+        });
+
+        $("#fileUploader").change(function () {
+            var path = $(this).val();
+            var name = path.substring(path.lastIndexOf("\\")+1);
+            $("#photoCover").val(name);
+        })
+    });
+</script>
 </html>

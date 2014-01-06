@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 /**
  * @author aburghelea
@@ -26,6 +28,13 @@ public class Index {
     @ModelAttribute("user")
     public User getUser() {
         return userService.getCurrentUser();
+    }
+
+    @RequestMapping("/upload")
+    public String upload(HttpServletRequest request) {
+
+        request.getParameter("file");
+        return "redirect:index";
     }
 
 }

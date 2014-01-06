@@ -5,6 +5,8 @@ import com.google.appengine.api.users.UserServiceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -20,6 +22,8 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 @Configuration
 @WebAppConfiguration
 public class WebConfig extends WebMvcConfigurerAdapter {
+
+    private final int MAX_UPLOAD_SIZE = 2621440;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -55,4 +59,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public UserService userService() {
         return UserServiceFactory.getUserService();
     }
+
+    @Bean
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(MAX_UPLOAD_SIZE);
+
+        return multipartResolver;
+    }
+
 }
