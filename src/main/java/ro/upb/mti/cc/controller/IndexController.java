@@ -8,8 +8,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ro.upb.mti.cc.service.GaeImageProvider;
 import ro.upb.mti.cc.dto.MultipartFileDTO;
+import ro.upb.mti.cc.service.GaeImageProvider;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.AbstractMap;
@@ -50,9 +50,16 @@ public class IndexController {
 
     @RequestMapping(value = "/images/small", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public List<AbstractMap.SimpleEntry<Integer,byte[]>> getThumbnails() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
+    public List<AbstractMap.SimpleEntry<Integer, byte[]>> getThumbnails() throws JsonProcessingException {
+
         return gaeImageProvider.getThumbnails();
+    }
+
+    @RequestMapping(value = "/images/original/{imageId}", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public  String getAttr(@PathVariable String imageId) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(gaeImageProvider.getOriginal(Integer.parseInt(imageId)));
     }
 
 

@@ -76,4 +76,20 @@ public class GaeImageProvider {
 
         return thumbnails;
     }
+
+    public byte[] getOriginal(int i) {
+        byte[] image;
+        try {
+            String email = UserServiceFactory.getUserService().getCurrentUser().getEmail();
+            List<List<byte[]>> allImages = userDao.get(email).getImages();
+
+            image = allImages.get(i).get(0);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return image;
+    }
 }

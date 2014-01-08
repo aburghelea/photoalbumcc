@@ -23,6 +23,7 @@
         <ul class="nav navbar-nav">
             <li data-show="#upload" id="showUploader"><a href="javascript:void(0)">Upload</a></li>
             <li data-show="#display" id="showDisplay"><a href="javascript:void(0)">Display</a></li>
+            <li data-show="#single" id="showSingle"><a href="javascript:void(0)">Single</a></li>
             <li data-show="#slideshow" id="showSlideShow"><a href="javascript:void(0)">Slideshow</a></li>
         </ul>
 
@@ -46,26 +47,37 @@
                 <label for="fileUploader" class="col-sm-2 control-label">Chose File</label>
 
                 <div class="col-sm-10">
-                    <input type="file" id="fileUploader" name="file" accept="image/*" style="display:none"/>
-                    <input id="photoCover" class="form-control col-sm-7" type="text" onclick="openUploader()"
+                    <input required="true" type="file" id="fileUploader" name="file" accept="image/*" style="display:none"/>
+                    <input required="true" id="photoCover" class="form-control col-sm-7" type="text" onclick="openUploader()"
                            placeholder="Click to chose"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Sign in</button>
+                    <button type="submit" class="btn btn-default">save</button>
                 </div>
             </div>
         </form>
     </div>
 
-    <div data-type="hidable" class="thumbnail" id="display" style="display: none">
+    <div data-type="hidable" id="single" style="display: none">
+        <img id="imageOriginal" src="" style="max-height: 600px; max-width: 800px"/>
+        <div id="fb-root"></div>
+
+
+        <div class="fb-comments" id="fb-comments" data-href="http://photoalbumcc.appspot.com/idStart/123/idEnd" data-numposts="5"
+             data-colorscheme="light"></div>
+    </div>
+
+    <div data-type="hidable"  id="display" style="display: none">
 
     </div>
 
     <div data-type="hidable" id="slideshow" style="display: none">
         Show
     </div>
+
+
 </div>
 
 </body>
