@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * @since 1/6/14.
  */
 @Controller
-public class Authentication {
+public class AuthenticationController {
 
     @RequestMapping("login")
     public String index(HttpServletRequest request) {

@@ -63,6 +63,10 @@ public abstract class ObjectifyGenericDao<T> {
         return ofy.load().type(clazz).id(id).now();
     }
 
+    public T get(String id) throws EntityNotFoundException {
+        return ofy.load().type(clazz).id(id).now();
+    }
+
     public T get(Key<T> key) throws EntityNotFoundException {
         return ofy.load().key(key).now();
     }
