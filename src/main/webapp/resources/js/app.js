@@ -42,8 +42,11 @@ function getImages() {
                     var $fbIframe = $("iframe[title='Facebook Social Plugin']");
                     var all = $fbIframe.attr("src");
                     var start = all.substr(0, all.lastIndexOf("idStart"));
-                    end = all.substr(all.lastIndexOf("idEnd") + 6);
-                    var redone = start + "idStart/"+$(this).attr("data-id")+"/idEnd/"+end;
+                    var end = all.substr(all.lastIndexOf("idEnd") + 6);
+                    var user = $("#user").attr("data-user");
+                    var photoId = $(this).attr("data-id");
+
+                    var redone = start + "idStart/"+ user+ "/" + photoId+"/idEnd/"+end;
                     $fbIframe.attr("src",redone);
                     $("#display").slideUp("fast");
                     $("#single").slideDown("fast");

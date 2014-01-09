@@ -70,7 +70,7 @@ public class GaeImageProvider {
                 thumbnails.add(new HashMap.SimpleEntry<Integer, byte[]>(i, allImages.get(i).get(1)));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+
             return null;
         }
 

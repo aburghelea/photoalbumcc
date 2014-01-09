@@ -32,7 +32,7 @@
                 <a th:href="@{/login}">Please log in!</a>
             </li>
             <li th:unless="${user == null}">
-                <a th:href="@{/logout}" th:text="'Log out, ' + ${user}"></a>
+                <a th:href="@{/logout}" th:text="'Log out, ' + ${user}" th:attr="data-user=${user}" id="user"></a>
             </li>
         </ul>
 
@@ -65,7 +65,7 @@
         <div id="fb-root"></div>
 
 
-        <div class="fb-comments" id="fb-comments" data-href="http://photoalbumcc.appspot.com/idStart/123/idEnd" data-numposts="5"
+        <div class="fb-comments" id="fb-comments" data-href="http://photoalbumcc.appspot.com/idStart/${user}/123/idEnd" data-numposts="5"
              data-colorscheme="light"></div>
     </div>
 
